@@ -3,39 +3,39 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    title: "Sistema de Gestão de Estoques com IA",
+    title: "Vozes de Mães Atípicas",
     description:
-      "Plataforma inteligente para gestão de inventário com previsão de demanda utilizando machine learning. Reduziu perdas em 35% e otimizou reposição automática.",
-    technologies: ["Python", "FastAPI", "React", "PostgreSQL", "Scikit-learn"],
-    problem: "Empresas perdiam dinheiro com excesso ou falta de estoque",
-    image: "bg-gradient-to-br from-blue-600/20 to-cyan-600/20",
-    github: "https://github.com",
-    demo: "https://demo.com",
+      "Plataforma desenvolvida para um projeto acadêmico que busca mitigar a vulnerabilidade que as mães atípicas sofrem, dando-lhes a oportunidade de conhecer sobre os seus direitos e conectá-las a uma rede com profissionais da saúde e do direito. A plataforma funciona também com um sistema integrado se SOS - Emergência, onde essas mulheres possam acionar de forma imediata a polícia e os seus familiares em situação de violência.",
+    technologies: ["Python", "React", "PostgreSQL", "Scikit-learn"],
+    problem: "Mães atípicas enfrentam vulnerabilidade social e falta de apoio",
+    image: "bg-[url('https://i.ibb.co/XfYVtz92/M-es-At-picas.png')] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-gradient-to-br from-orange-600/50 to-red-600/50",
+    github: "https://github.com/WashingtonLuiz2312/mae-atipica",
+    demo: "https://mae-atipica.lovable.app/",
   },
   {
-    title: "Plataforma de Acesso à Justiça",
+    title: "Assistente Jurídico com IA",
     description:
       "Sistema com IA para orientação jurídica automatizada, análise de documentos e triagem inteligente de casos. Democratizando o acesso à justiça.",
-    technologies: ["TypeScript", "Node.js", "React", "NLP", "MongoDB"],
+    technologies: ["Python", "OpenAI", "NLP", "Supabase"],
     problem: "Dificuldade de acesso a orientação jurídica básica",
-    image: "bg-gradient-to-br from-purple-600/20 to-pink-600/20",
-    github: "https://github.com",
+    image: "bg-[url('https://i.ibb.co/mFd9zzVJ/SYD-1.png')] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-gradient-to-br from-orange-600/50 to-red-600/50",
+    github: "https://github.com/WashingtonLuiz2312/Synex-Assistente-Juridico",
   },
   {
-    title: "Sistema de Triagem Hospitalar",
+    title: "Sistema de Site para um SportBar",
     description:
-      "Aplicação para triagem automática de pacientes usando processamento de linguagem natural, classificando urgência e otimizando filas de atendimento.",
-    technologies: ["Python", "Flask", "NLP", "TensorFlow", "Docker"],
-    problem: "Filas longas e triagem ineficiente em hospitais",
-    image: "bg-gradient-to-br from-green-600/20 to-emerald-600/20",
-    github: "https://github.com",
-    demo: "https://demo.com",
+      "Plataforma web para um SportBar local, com funcionalidades de cardápio digital, reservas online e promoções especiais. Melhorando a experiência do cliente e otimizando operações.",
+    technologies: ["React", "Node.Js", "TypeScript"],
+    problem: "Necessidade de modernizar a experiência do cliente e otimizar operações",
+    image: "bg-[url('https://i.ibb.co/1fqs0Nxw/Captura-de-tela-2025-12-13-143543.png')] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-gradient-to-br from-orange-600/50 to-smerald-600/50",
+    github: "https://github.com/WashingtonLuiz2312/arena-digital",
+    demo: "https://sportbar.lovable.app/",
   },
   {
     title: "Reconhecimento Facial para Controle de Acesso",
     description:
       "Sistema de segurança com reconhecimento facial em tempo real, integrado a catracas e portas eletrônicas. Alta precisão e baixa latência.",
-    technologies: ["Python", "OpenCV", "PyTorch", "FastAPI", "Redis"],
+    technologies: ["Em desenvolvimento"],
     problem: "Controle de acesso manual é lento e vulnerável",
     image: "bg-gradient-to-br from-orange-600/20 to-red-600/20",
     github: "https://github.com",
@@ -54,8 +54,8 @@ const Projects = () => {
             Projetos em <span className="text-gradient">destaque</span>
           </h2>
           <p className="section-subtitle mx-auto">
-            Uma seleção dos projetos mais relevantes que demonstram minhas
-            habilidades em desenvolvimento e arquitetura de software.
+            Uma seleção dos projetos mais relevantes que foram desenvolvidos em decorrer acadêmico e em aprendizado pessoal que demonstram minhas
+            habilidades em desenvolvimento e a busca pela melhoria contínua.
           </p>
         </div>
 
