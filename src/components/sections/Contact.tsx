@@ -54,7 +54,7 @@ const Contact = () => {
               Vamos <span className="text-gradient">conversar</span>?
             </h2>
             <p className="section-subtitle mx-auto">
-              Estou disponível para novos projetos, colaborações ou apenas
+              Estou disponível para novos projetos, oportunidades ou apenas
               trocar ideias sobre tecnologia.
             </p>
           </div>
@@ -77,13 +77,13 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">E-mail</p>
                     <p className="text-muted-foreground text-sm">
-                      email@example.com
+                      washington.tech@outlook.com.br
                     </p>
                   </div>
                 </a>
 
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/washington-luiz-amorim/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl border border-border bg-card hover:border-primary/50 transition-colors group"
@@ -94,13 +94,13 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">LinkedIn</p>
                     <p className="text-muted-foreground text-sm">
-                      /in/seu-perfil
+                      www.linkedin.com/in/washington-luiz-amorim/
                     </p>
                   </div>
                 </a>
 
                 <a
-                  href="https://github.com"
+                  href="https://github.com/WashingtonLuiz2312"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl border border-border bg-card hover:border-primary/50 transition-colors group"
@@ -111,13 +111,13 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">GitHub</p>
                     <p className="text-muted-foreground text-sm">
-                      github.com/seu-usuario
+                      www.github.com/WashingtonLuiz2312
                     </p>
                   </div>
                 </a>
 
                 <a
-                  href="https://wa.me/5500000000000"
+                  href="https://wa.me/5571996499794"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl border border-border bg-card hover:border-primary/50 transition-colors group"
@@ -128,7 +128,7 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">WhatsApp</p>
                     <p className="text-muted-foreground text-sm">
-                      +55 (00) 00000-0000
+                      +55 (71) 99649-9794
                     </p>
                   </div>
                 </a>
