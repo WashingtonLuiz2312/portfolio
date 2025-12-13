@@ -1,0 +1,139 @@
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const Hero = () => {
+  const handleScroll = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      
+      {/* Grid Pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
+                           linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
+          backgroundSize: "50px 50px",
+        }}
+      />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Terminal-like intro */}
+          <div className="inline-flex items-center gap-2 bg-muted/50 rounded-full px-4 py-2 mb-8 border border-border">
+            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+            <span className="font-mono text-sm text-muted-foreground">
+              Disponível para novos projetos
+            </span>
+          </div>
+
+          {/* Name */}
+          <h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 opacity-0 animate-fade-in"
+            style={{ animationDelay: "0.2s" }}
+          >
+            Olá, eu sou{" "}
+            <span className="text-gradient">Desenvolvedor</span>
+          </h1>
+
+          {/* Title */}
+          <div
+            className="opacity-0 animate-fade-in"
+            style={{ animationDelay: "0.4s" }}
+          >
+            <p className="font-mono text-lg md:text-xl text-primary mb-6">
+              Full Stack Developer | IA & Sistemas Inteligentes
+            </p>
+          </div>
+
+          {/* Description */}
+          <p
+            className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in"
+            style={{ animationDelay: "0.6s" }}
+          >
+            Transformo ideias em soluções tecnológicas escaláveis. Especializado em 
+            arquitetura de sistemas, inteligência artificial e aplicações web modernas.
+          </p>
+
+          {/* CTAs */}
+          <div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 opacity-0 animate-fade-in"
+            style={{ animationDelay: "0.8s" }}
+          >
+            <Button
+              size="lg"
+              className="group glow"
+              onClick={() => handleScroll("#projects")}
+            >
+              Ver Projetos
+              <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => handleScroll("#contact")}
+            >
+              Entrar em Contato
+            </Button>
+          </div>
+
+          {/* Social Links */}
+          <div
+            className="flex items-center justify-center gap-6 opacity-0 animate-fade-in"
+            style={{ animationDelay: "1s" }}
+          >
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="h-6 w-6" />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-6 w-6" />
+            </a>
+            <a
+              href="mailto:email@example.com"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="h-6 w-6" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1.2s" }}>
+        <div className="flex flex-col items-center gap-2 text-muted-foreground">
+          <span className="text-xs font-mono">Scroll</span>
+          <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2">
+            <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
