@@ -31,13 +31,15 @@ const About = () => {
           {/* Left Column - Photo & Content */}
           <div>
             {/* Profile Photo */}
-            <div className="mb-10 flex justify-center lg:justify-start">
+            <div className="mb-12 flex justify-center">
               <div className="relative group">
-                {/* Glow Effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                {/* Rotating Border */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-primary rounded-full blur-sm opacity-60 group-hover:opacity-80 transition-opacity duration-500 animate-spin-slow" 
+                  style={{ animation: "spin 8s linear infinite" }} 
+                />
                 
                 {/* Photo Container */}
-                <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border-2 border-primary/30 bg-card">
+                <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-background bg-card shadow-2xl">
                   {/* Replace this placeholder with your photo */}
                   {/* To add your photo: 
                       1. Upload your image to src/assets/
@@ -45,20 +47,13 @@ const About = () => {
                       3. Replace the placeholder below with: <img src={profilePhoto} alt="Foto profissional" className="w-full h-full object-cover" />
                   */}
                   <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-muted to-card text-muted-foreground">
-                    <User className="w-20 h-20 mb-3 text-primary/50" />
-                    <span className="text-sm font-mono text-primary/70">Sua foto aqui</span>
-                  </div>
-                  
-                  {/* Decorative Elements */}
-                  <div className="absolute top-4 right-4 w-3 h-3 bg-primary rounded-full animate-pulse" />
-                  <div className="absolute bottom-4 left-4 font-mono text-xs text-primary/70 bg-background/80 px-2 py-1 rounded">
-                    &lt;Developer /&gt;
+                    <User className="w-16 h-16 mb-2 text-primary/50" />
+                    <span className="text-xs font-mono text-primary/70">Sua foto</span>
                   </div>
                 </div>
 
-                {/* Corner Decorations */}
-                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-primary rounded-tl-lg" />
-                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-primary rounded-br-lg" />
+                {/* Status Indicator */}
+                <div className="absolute bottom-2 right-2 w-5 h-5 bg-green-500 rounded-full border-4 border-background animate-pulse" title="Disponível para projetos" />
               </div>
             </div>
 
