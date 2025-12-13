@@ -1,4 +1,4 @@
-import { Code2, Cpu, Database, Layers } from "lucide-react";
+import { Code2, Cpu, Database, Layers, User } from "lucide-react";
 
 const highlights = [
   {
@@ -28,8 +28,40 @@ const About = () => {
     <section id="about" className="section-padding relative">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left Column - Content */}
+          {/* Left Column - Photo & Content */}
           <div>
+            {/* Profile Photo */}
+            <div className="mb-10 flex justify-center lg:justify-start">
+              <div className="relative group">
+                {/* Glow Effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                
+                {/* Photo Container */}
+                <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border-2 border-primary/30 bg-card">
+                  {/* Replace this placeholder with your photo */}
+                  {/* To add your photo: 
+                      1. Upload your image to src/assets/
+                      2. Import it: import profilePhoto from "@/assets/your-photo.jpg"
+                      3. Replace the placeholder below with: <img src={profilePhoto} alt="Foto profissional" className="w-full h-full object-cover" />
+                  */}
+                  <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-muted to-card text-muted-foreground">
+                    <User className="w-20 h-20 mb-3 text-primary/50" />
+                    <span className="text-sm font-mono text-primary/70">Sua foto aqui</span>
+                  </div>
+                  
+                  {/* Decorative Elements */}
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-primary rounded-full animate-pulse" />
+                  <div className="absolute bottom-4 left-4 font-mono text-xs text-primary/70 bg-background/80 px-2 py-1 rounded">
+                    &lt;Developer /&gt;
+                  </div>
+                </div>
+
+                {/* Corner Decorations */}
+                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-primary rounded-tl-lg" />
+                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-primary rounded-br-lg" />
+              </div>
+            </div>
+
             <span className="font-mono text-primary text-sm mb-4 block">
               // Sobre mim
             </span>
