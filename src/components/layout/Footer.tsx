@@ -1,10 +1,11 @@
+import { forwardRef } from "react";
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 
-const Footer = () => {
+const Footer = forwardRef<HTMLElement>((_, ref) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-border">
+    <footer ref={ref} className="py-12 border-t border-border">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
@@ -50,6 +51,8 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = "Footer";
 
 export default Footer;
