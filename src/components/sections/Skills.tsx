@@ -11,37 +11,37 @@ const skillCategories = [
   {
     icon: Code,
     title: "Linguagens",
-    skills: ["Python", "JavaScript", "TypeScript", "Java", "SQL", "C#"],
+    skills: ["Python", "JavaScript", "TypeScript", "SQL"],
     color: "from-blue-500 to-cyan-500",
   },
   {
     icon: Layers,
     title: "Frameworks & Bibliotecas",
-    skills: ["React", "Angular", "Vue.js", "FastAPI", "Flask", "Node.js", "Express", "Django"],
+    skills: ["React", "Angular", "Vue.js", "FastAPI", "Flask", "Node.js", "Django"],
     color: "from-green-500 to-emerald-500",
   },
   {
     icon: Brain,
     title: "IA & Machine Learning",
-    skills: ["NLP", "Visão Computacional", "Modelos Preditivos", "OpenCV", "Scikit-learn", "TensorFlow", "PyTorch"],
+    skills: ["NLP", "OpenCV", "Scikit-learn", "TensorFlow", "PyTorch"],
     color: "from-purple-500 to-pink-500",
   },
   {
     icon: Database,
     title: "Banco de Dados",
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "SQLite", "Firebase"],
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "SQLite", "Firebase", "Supabase"],
     color: "from-orange-500 to-yellow-500",
   },
   {
     icon: Settings,
     title: "DevOps & Ferramentas",
-    skills: ["Git", "Docker", "Kubernetes", "CI/CD", "AWS", "Linux", "Nginx"],
+    skills: ["Git", "Docker", "CI/CD", "Linux"],
     color: "from-red-500 to-orange-500",
   },
   {
     icon: Zap,
     title: "APIs & Integrações",
-    skills: ["REST APIs", "GraphQL", "WebSockets", "OAuth", "JWT", "Stripe", "Twilio"],
+    skills: ["REST APIs", "WebSockets", "OAuth", "Stripe", "Twilio"],
     color: "from-cyan-500 to-blue-500",
   },
 ];
