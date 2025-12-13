@@ -1,6 +1,12 @@
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const technologies = [
+  "Python", "JavaScript", "TypeScript", "Java", "C#", "SQL",
+  "React", "Angular", "Vue.js", "Node.js", "FastAPI", "Flask",
+  "PostgreSQL", "MongoDB", "Docker", "Kubernetes", "TensorFlow", "PyTorch"
+];
+
 const Hero = () => {
   const handleScroll = (href: string) => {
     const element = document.querySelector(href);
@@ -12,7 +18,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
@@ -29,7 +35,7 @@ const Hero = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 flex-1 flex items-center">
         <div className="max-w-4xl mx-auto text-center">
           {/* Terminal-like intro */}
           <div className="inline-flex items-center gap-2 bg-muted/50 rounded-full px-4 py-2 mb-8 border border-border">
@@ -123,8 +129,31 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Tech Carousel */}
+      <div className="w-full py-8 relative z-10 opacity-0 animate-fade-in" style={{ animationDelay: "1.2s" }}>
+        <div className="relative overflow-hidden">
+          {/* Fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+          
+          {/* Scrolling container */}
+          <div className="flex animate-marquee">
+            {[...technologies, ...technologies].map((tech, index) => (
+              <div
+                key={`${tech}-${index}`}
+                className="flex-shrink-0 mx-4 px-6 py-3 bg-card/50 backdrop-blur-sm rounded-full border border-border hover:border-primary/50 transition-colors"
+              >
+                <span className="font-mono text-sm text-muted-foreground whitespace-nowrap">
+                  {tech}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1.2s" }}>
+      <div className="pb-8 opacity-0 animate-fade-in" style={{ animationDelay: "1.4s" }}>
         <div className="flex flex-col items-center gap-2 text-muted-foreground">
           <span className="text-xs font-mono">Scroll</span>
           <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2">
