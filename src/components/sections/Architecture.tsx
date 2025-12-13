@@ -24,7 +24,7 @@ const principles = [
     icon: Zap,
     title: "APIs REST",
     description:
-      "Design de APIs seguindo padrões REST, com versionamento, documentação OpenAPI e tratamento adequado de erros.",
+      "Conexão com apis seguindo padrões, com versionamento, e tratamento adequado de erros.",
   },
   {
     icon: RefreshCw,
@@ -42,7 +42,7 @@ const principles = [
     icon: Shield,
     title: "Segurança & Escalabilidade",
     description:
-      "Autenticação JWT, validação de inputs, proteção contra injeções e design preparado para crescimento.",
+      "Autenticação, validação de inputs e design preparado para crescimento.",
   },
 ];
 
