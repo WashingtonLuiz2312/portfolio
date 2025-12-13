@@ -1,4 +1,5 @@
 import { Code2, Cpu, Database, Layers, User } from "lucide-react";
+import profilePhoto from "@/assets/profilePhoto.png";
 
 const highlights = [
   {
@@ -9,17 +10,17 @@ const highlights = [
   {
     icon: Cpu,
     title: "IA & ML",
-    description: "Soluções inteligentes com machine learning",
+    description: "Soluções com machine learning",
   },
   {
     icon: Database,
     title: "Arquitetura",
-    description: "Sistemas escaláveis e resilientes",
+    description: "Sistemas escaláveis",
   },
   {
     icon: Layers,
     title: "Full Stack",
-    description: "Do frontend ao backend com excelência",
+    description: "Do frontend ao backend com aprendizado contínuo",
   },
 ];
 
@@ -40,12 +41,7 @@ const About = () => {
                 
                 {/* Photo Container */}
                 <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-background bg-card shadow-2xl">
-                  {/* Replace this placeholder with your photo */}
-                  {/* To add your photo: 
-                      1. Upload your image to src/assets/
-                      2. Import it: import profilePhoto from "@/assets/your-photo.jpg"
-                      3. Replace the placeholder below with: <img src={profilePhoto} alt="Foto profissional" className="w-full h-full object-cover" />
-                  */}
+                  {<img src={profilePhoto} alt="Foto profissional" className="w-full h-full object-cover" />}
                   <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-muted to-card text-muted-foreground">
                     <User className="w-16 h-16 mb-2 text-primary/50" />
                     <span className="text-xs font-mono text-primary/70">Sua foto</span>
@@ -67,20 +63,20 @@ const About = () => {
             <div className="space-y-4 text-muted-foreground">
               <p>
                 Sou um desenvolvedor apaixonado por resolver problemas complexos 
-                através de soluções tecnológicas elegantes e eficientes. Com anos 
-                de experiência em desenvolvimento de software, especializo-me em 
-                criar sistemas inteligentes que fazem a diferença.
+                através de soluções tecnológicas. Com alguns anos 
+                de experiência em desenvolvimento de software e análise de dados, procuro me especializar em 
+                criar sistemas inteligentes que façam a diferença e entreguem resultados.
               </p>
               <p>
-                Minha expertise abrange desde o desenvolvimento de APIs REST robustas 
-                até a implementação de modelos de machine learning em produção. 
-                Trabalho com tecnologias modernas como Python, TypeScript, React e 
-                frameworks de IA para entregar soluções que superam expectativas.
+                Minha expertise abrange desde o desenvolvimento sistemas simples e automáticos 
+                até a implementação de modelos de machine learning. 
+                Trabalho com tecnologias como Python, TypeScript, React e 
+                frameworks de IA para entregar soluções.
               </p>
               <p>
                 Focado em arquitetura limpa e boas práticas, busco sempre entregar 
-                código que seja não apenas funcional, mas também escalável, 
-                manutenível e preparado para o futuro.
+                código que não seja apenas funcional, mas também escalável, 
+                manutenível e preparado para melhorias contínuas.
               </p>
             </div>
 
@@ -122,9 +118,9 @@ const About = () => {
         {/* Experience Stats */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { value: "5+", label: "Anos de Experiência" },
-            { value: "50+", label: "Projetos Concluídos" },
-            { value: "20+", label: "Tecnologias Dominadas" },
+            { value: "3+", label: "Anos de Experiência" },
+            { value: "20+", label: "Projetos Concluídos" },
+            { value: "10+", label: "Tecnologias Dominadas" },
             { value: "100%", label: "Foco em Qualidade" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
