@@ -73,7 +73,7 @@ const Hero = () => {
             style={{ animationDelay: "0.2s" }}
           >
             Olá, eu sou{" "}
-            <span className="text-gradient">Desenvolvedor</span>
+            <span className="text-gradient">Washington</span>
           </h1>
 
           {/* Title */}
@@ -91,8 +91,8 @@ const Hero = () => {
             className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in"
             style={{ animationDelay: "0.6s" }}
           >
-            Transformo ideias em soluções tecnológicas escaláveis. Especializado em 
-            arquitetura de sistemas, inteligência artificial e aplicações web modernas.
+            Transformo ideias em soluções tecnológicas escaláveis. Conhecimento em 
+            arquitetura de sistemas, inteligência artificial, automação de processo e aplicações web.
           </p>
 
           {/* CTAs */}
@@ -123,7 +123,7 @@ const Hero = () => {
             style={{ animationDelay: "1s" }}
           >
             <a
-              href="https://github.com"
+              href="https://github.com/WashingtonLuiz2312"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -132,7 +132,7 @@ const Hero = () => {
               <Github className="h-6 w-6" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/washington-luiz-amorim/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -141,7 +141,7 @@ const Hero = () => {
               <Linkedin className="h-6 w-6" />
             </a>
             <a
-              href="mailto:email@example.com"
+              href="washington.tech@outlook.com.br"
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="Email"
             >
