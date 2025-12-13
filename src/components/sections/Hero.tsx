@@ -1,10 +1,32 @@
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { 
+  SiPython, SiJavascript, SiTypescript, SiReact, SiAngular, SiVuedotjs,
+  SiNodedotjs, SiFastapi, SiFlask, SiPostgresql, SiMongodb, SiDocker,
+  SiKubernetes, SiTensorflow, SiPytorch
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+import { TbBrandCSharp, TbSql } from "react-icons/tb";
 
 const technologies = [
-  "Python", "JavaScript", "TypeScript", "Java", "C#", "SQL",
-  "React", "Angular", "Vue.js", "Node.js", "FastAPI", "Flask",
-  "PostgreSQL", "MongoDB", "Docker", "Kubernetes", "TensorFlow", "PyTorch"
+  { name: "Python", icon: SiPython, color: "#3776AB" },
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { name: "Java", icon: FaJava, color: "#ED8B00" },
+  { name: "C#", icon: TbBrandCSharp, color: "#512BD4" },
+  { name: "SQL", icon: TbSql, color: "#4479A1" },
+  { name: "React", icon: SiReact, color: "#61DAFB" },
+  { name: "Angular", icon: SiAngular, color: "#DD0031" },
+  { name: "Vue.js", icon: SiVuedotjs, color: "#4FC08D" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+  { name: "FastAPI", icon: SiFastapi, color: "#009688" },
+  { name: "Flask", icon: SiFlask, color: "#ffffff" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+  { name: "Docker", icon: SiDocker, color: "#2496ED" },
+  { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
+  { name: "TensorFlow", icon: SiTensorflow, color: "#FF6F00" },
+  { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
 ];
 
 const Hero = () => {
@@ -138,16 +160,25 @@ const Hero = () => {
           
           {/* Scrolling container */}
           <div className="flex animate-marquee">
-            {[...technologies, ...technologies].map((tech, index) => (
-              <div
-                key={`${tech}-${index}`}
-                className="flex-shrink-0 mx-4 px-6 py-3 bg-card/50 backdrop-blur-sm rounded-full border border-border hover:border-primary/50 transition-colors"
-              >
-                <span className="font-mono text-sm text-muted-foreground whitespace-nowrap">
-                  {tech}
-                </span>
-              </div>
-            ))}
+            {[...technologies, ...technologies].map((tech, index) => {
+              const IconComponent = tech.icon;
+              return (
+                <div
+                  key={`${tech.name}-${index}`}
+                  className="flex-shrink-0 mx-3 px-5 py-3 bg-card/50 backdrop-blur-sm rounded-full border border-border hover:border-primary/50 transition-all hover:scale-105 group"
+                >
+                  <div className="flex items-center gap-2">
+                    <IconComponent 
+                      className="h-5 w-5 transition-colors" 
+                      style={{ color: tech.color }}
+                    />
+                    <span className="font-mono text-sm text-muted-foreground whitespace-nowrap group-hover:text-foreground transition-colors">
+                      {tech.name}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
