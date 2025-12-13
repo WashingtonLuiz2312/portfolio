@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import { Send, Github, Linkedin, Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
-const Contact = () => {
+const Contact = forwardRef<HTMLElement>((_, ref) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -40,7 +40,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding relative">
+    <section ref={ref} id="contact" className="section-padding relative">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent" />
 
@@ -219,6 +219,8 @@ const Contact = () => {
       </div>
     </section>
   );
-};
+});
+
+Contact.displayName = "Contact";
 
 export default Contact;
