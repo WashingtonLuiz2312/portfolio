@@ -12,8 +12,6 @@ const technologies = [
   { name: "Python", icon: SiPython, color: "#3776AB" },
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-  { name: "Java", icon: FaJava, color: "#ED8B00" },
-  { name: "C#", icon: TbBrandCSharp, color: "#512BD4" },
   { name: "SQL", icon: TbSql, color: "#4479A1" },
   { name: "React", icon: SiReact, color: "#61DAFB" },
   { name: "Angular", icon: SiAngular, color: "#DD0031" },
@@ -24,7 +22,6 @@ const technologies = [
   { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
   { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
   { name: "Docker", icon: SiDocker, color: "#2496ED" },
-  { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
   { name: "TensorFlow", icon: SiTensorflow, color: "#FF6F00" },
   { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
 ];
@@ -59,13 +56,6 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10 flex-1 flex items-center">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Terminal-like intro */}
-          <div className="inline-flex items-center gap-2 bg-muted/50 rounded-full px-4 py-2 mb-8 border border-border">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="font-mono text-sm text-muted-foreground">
-              Disponível para novos projetos
-            </span>
-          </div>
 
           {/* Name */}
           <h1
