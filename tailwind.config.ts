@@ -109,6 +109,10 @@ export default {
           "0%, 100%": { borderColor: "transparent" },
           "50%": { borderColor: "hsl(var(--primary))" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -121,6 +125,7 @@ export default {
         pulse: "pulse 2s ease-in-out infinite",
         typing: "typing 3s steps(30) forwards",
         blink: "blink 1s step-end infinite",
+        marquee: "marquee 25s linear infinite",
       },
     },
   },
