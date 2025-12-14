@@ -1,12 +1,16 @@
 import { forwardRef } from "react";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
 
+// Para adicionar a logo da empresa, importe a imagem e adicione no campo "logo"
+// Exemplo: import empresaLogo from "@/assets/empresa-logo.png";
+
 const experiences = [
   {
     company: "Nome da Empresa",
     role: "Desenvolvedor Full Stack Senior",
     period: "2022 - Presente",
     location: "São Paulo, SP",
+    logo: null, // Substitua por: empresaLogo (após importar a imagem)
     description:
       "Desenvolvimento de aplicações web escaláveis utilizando React, Node.js e Python. Liderança técnica de equipe e implementação de arquiteturas de microsserviços.",
     technologies: ["React", "Node.js", "Python", "AWS", "Docker"],
@@ -16,6 +20,7 @@ const experiences = [
     role: "Desenvolvedor Backend",
     period: "2020 - 2022",
     location: "Remoto",
+    logo: null, // Substitua pela logo importada
     description:
       "Desenvolvimento de APIs RESTful e integração com sistemas de machine learning. Otimização de performance e implementação de pipelines de dados.",
     technologies: ["Python", "FastAPI", "PostgreSQL", "Redis", "Kubernetes"],
@@ -25,6 +30,7 @@ const experiences = [
     role: "Desenvolvedor Junior",
     period: "2018 - 2020",
     location: "Rio de Janeiro, RJ",
+    logo: null, // Substitua pela logo importada
     description:
       "Início da carreira em desenvolvimento web, focado em frontend com React e aprendizado de boas práticas de desenvolvimento.",
     technologies: ["React", "JavaScript", "CSS", "Git"],
@@ -77,9 +83,19 @@ const Experience = forwardRef<HTMLElement>((_, ref) => {
                   <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
                     {/* Company & Role */}
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="p-3 bg-primary/10 rounded-lg">
-                        <Briefcase className="w-6 h-6 text-primary" />
-                      </div>
+                      {exp.logo ? (
+                        <div className="w-14 h-14 rounded-lg overflow-hidden bg-background border border-border/50 flex items-center justify-center flex-shrink-0">
+                          <img
+                            src={exp.logo}
+                            alt={`${exp.company} logo`}
+                            className="w-full h-full object-contain p-1"
+                          />
+                        </div>
+                      ) : (
+                        <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
+                          <Briefcase className="w-6 h-6 text-primary" />
+                        </div>
+                      )}
                       <div>
                         <h3 className="text-xl font-bold text-foreground">
                           {exp.role}
