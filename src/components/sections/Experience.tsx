@@ -6,34 +6,34 @@ import { Briefcase, Calendar, MapPin } from "lucide-react";
 
 const experiences = [
   {
-    company: "Nome da Empresa",
-    role: "Desenvolvedor Full Stack Senior",
-    period: "2022 - Presente",
-    location: "São Paulo, SP",
+    company: "Altus Equipamentos",
+    role: "Desenvolvedor Full Stack",
+    period: "2026 - Presente",
+    location: "Camaçari, BA",
     logo: null, // Substitua por: empresaLogo (após importar a imagem)
     description:
-      "Desenvolvimento de aplicações web escaláveis utilizando React, Node.js e Python. Liderança técnica de equipe e implementação de arquiteturas de microsserviços.",
-    technologies: ["React", "Node.js", "Python", "AWS", "Docker"],
+      "Desenvolvimento de aplicações web utilizando React, Node.js e Python. Responsabilidade técnica de equipe e implementação de arquiteturas de microsserviços automatizados",
+    technologies: ["PostgreSQL", "Node.js", "Python", "Javascript", "N8N"],
   },
   {
-    company: "Outra Empresa",
-    role: "Desenvolvedor Backend",
-    period: "2020 - 2022",
-    location: "Remoto",
+    company: "Altus Equipamentos",
+    role: "Estagiário de Sistemas e Automação",
+    period: "2025 - 2026",
+    location: "Camaçari, BA",
     logo: null, // Substitua pela logo importada
     description:
-      "Desenvolvimento de APIs RESTful e integração com sistemas de machine learning. Otimização de performance e implementação de pipelines de dados.",
-    technologies: ["Python", "FastAPI", "PostgreSQL", "Redis", "Kubernetes"],
+      "Desenvolvimento de sistemas automatizados para o setor comercial, automatização de extração de dados utilizando frameworks dedicados.",
+    technologies: ["Javascript", "N8N", "React"],
   },
   {
-    company: "Startup Tech",
-    role: "Desenvolvedor Junior",
-    period: "2018 - 2020",
-    location: "Rio de Janeiro, RJ",
+    company: "Grupo Boticário",
+    role: "Jovem Aprendiz",
+    period: "2022 - 2024",
+    location: "Camaçari, BA",
     logo: null, // Substitua pela logo importada
     description:
-      "Início da carreira em desenvolvimento web, focado em frontend com React e aprendizado de boas práticas de desenvolvimento.",
-    technologies: ["React", "JavaScript", "CSS", "Git"],
+      "Início da carreira em desenvolvimento web e análise de dados, focado em análise de dados e aprendizado de boas práticas de desenvolvimento.",
+    technologies: ["Python", "CSS", "Git"],
   },
 ];
 
