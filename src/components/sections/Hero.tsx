@@ -2,14 +2,15 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { 
   SiPython, SiJavascript, SiTypescript, SiReact, SiAngular, SiVuedotjs,
-  SiNodedotjs, SiFastapi, SiFlask, SiPostgresql, SiMongodb, SiDocker,
-  SiKubernetes, SiTensorflow, SiPytorch
+  SiNodedotjs, SiFastapi, SiFlask, SiPostgresql, SiDocker, SiTensorflow, SiPytorch, SiHtml5, SiCss3
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { TbBrandCSharp, TbSql } from "react-icons/tb";
 
 const technologies = [
   { name: "Python", icon: SiPython, color: "#3776AB" },
+  { name: "HTML", icon: SiHtml5, color: "#ffc402"},
+  { name: "CSS", icon: SiCss3, color: "#FFFFFF" },
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
   { name: "SQL", icon: TbSql, color: "#4479A1" },
@@ -20,7 +21,6 @@ const technologies = [
   { name: "FastAPI", icon: SiFastapi, color: "#009688" },
   { name: "Flask", icon: SiFlask, color: "#ffffff" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
-  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
   { name: "Docker", icon: SiDocker, color: "#2496ED" },
   { name: "TensorFlow", icon: SiTensorflow, color: "#FF6F00" },
   { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
@@ -37,7 +37,8 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 md:pt-0"
+      // Alterado para justify-between para distribuir o espaço uniformemente
+      className="min-h-screen flex flex-col justify-between relative overflow-hidden pt-20 md:pt-24"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
@@ -54,7 +55,11 @@ const Hero = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 relative z-10 flex-1 flex items-center">
+      {/* 1. Espaçador Invisível no topo para equilibrar o layout e empurrar o texto para baixo */}
+      <div className="w-full h-[100px] md:h-[120px] relative z-10"></div>
+
+      {/* 2. Conteúdo Principal Centralizado */}
+      <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center">
         <div className="max-w-4xl mx-auto text-center">
 
           {/* Name */}
@@ -131,7 +136,7 @@ const Hero = () => {
               <Linkedin className="h-6 w-6" />
             </a>
             <a
-              href="washington.tech@outlook.com.br"
+              href="mailto:washington.tech@outlook.com.br" // <-- Adicionado o 'mailto:' aqui!
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="Email"
             >
@@ -141,44 +146,47 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Tech Carousel */}
-      <div className="w-full py-8 relative z-10 opacity-0 animate-fade-in" style={{ animationDelay: "1.2s" }}>
-        <div className="relative overflow-hidden">
-          {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
-          
-          {/* Scrolling container */}
-          <div className="flex animate-marquee">
-            {[...technologies, ...technologies].map((tech, index) => {
-              const IconComponent = tech.icon;
-              return (
-                <div
-                  key={`${tech.name}-${index}`}
-                  className="flex-shrink-0 mx-3 px-5 py-3 bg-card/50 backdrop-blur-sm rounded-full border border-border hover:border-primary/50 transition-all hover:scale-105 group"
-                >
-                  <div className="flex items-center gap-2">
-                    <IconComponent 
-                      className="h-5 w-5 transition-colors" 
-                      style={{ color: tech.color }}
-                    />
-                    <span className="font-mono text-sm text-muted-foreground whitespace-nowrap group-hover:text-foreground transition-colors">
-                      {tech.name}
-                    </span>
+      {/* 3. Rodapé (Carousel & Scroll Indicator) */}
+      <div className="w-full flex flex-col justify-end relative z-10 mt-8">
+        {/* Tech Carousel */}
+        <div className="w-full py-8 opacity-0 animate-fade-in" style={{ animationDelay: "1.2s" }}>
+          <div className="relative overflow-hidden">
+            {/* Fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+            
+            {/* Scrolling container */}
+            <div className="flex animate-marquee">
+              {[...technologies, ...technologies].map((tech, index) => {
+                const IconComponent = tech.icon;
+                return (
+                  <div
+                    key={`${tech.name}-${index}`}
+                    className="flex-shrink-0 mx-3 px-5 py-3 bg-card/50 backdrop-blur-sm rounded-full border border-border hover:border-primary/50 transition-all hover:scale-105 group"
+                  >
+                    <div className="flex items-center gap-2">
+                      <IconComponent 
+                        className="h-5 w-5 transition-colors" 
+                        style={{ color: tech.color }}
+                      />
+                      <span className="font-mono text-sm text-muted-foreground whitespace-nowrap group-hover:text-foreground transition-colors">
+                        {tech.name}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <div className="pb-8 opacity-0 animate-fade-in" style={{ animationDelay: "1.4s" }}>
-        <div className="flex flex-col items-center gap-2 text-muted-foreground">
-          <span className="text-xs font-mono">Scroll</span>
-          <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2">
-            <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" />
+        {/* Scroll Indicator */}
+        <div className="pb-8 opacity-0 animate-fade-in" style={{ animationDelay: "1.4s" }}>
+          <div className="flex flex-col items-center gap-2 text-muted-foreground">
+            <span className="text-xs font-mono">Scroll</span>
+            <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2">
+              <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" />
+            </div>
           </div>
         </div>
       </div>

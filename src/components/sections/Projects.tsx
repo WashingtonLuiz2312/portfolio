@@ -8,7 +8,7 @@ const projects = [
       "Plataforma desenvolvida para um projeto acadêmico que busca mitigar a vulnerabilidade que as mães atípicas sofrem, dando-lhes a oportunidade de conhecer sobre os seus direitos e conectá-las a uma rede com profissionais da saúde e do direito. A plataforma funciona também com um sistema integrado se SOS - Emergência, onde essas mulheres possam acionar de forma imediata a polícia e os seus familiares em situação de violência.",
     technologies: ["Python", "React", "PostgreSQL", "Scikit-learn"],
     problem: "Mães atípicas enfrentam vulnerabilidade social e falta de apoio",
-    image: "bg-[url('https://i.ibb.co/XfYVtz92/M-es-At-picas.png')] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-gradient-to-br from-orange-600/50 to-red-600/50",
+    image: "bg-[url('https://i.ibb.co/XfYVtz92/M-es-At-picas.png')] bg-cover bg-center from-orange-600/50 to-red-600/50",
     github: "https://github.com/WashingtonLuiz2312/mae-atipica",
     demo: "https://mae-atipica.lovable.app/",
   },
@@ -18,7 +18,7 @@ const projects = [
       "Sistema com IA para orientação jurídica automatizada, análise de documentos e triagem inteligente de casos. Democratizando o acesso à justiça.",
     technologies: ["Python", "OpenAI", "NLP", "Supabase"],
     problem: "Dificuldade de acesso a orientação jurídica básica",
-    image: "bg-[url('https://i.ibb.co/mFd9zzVJ/SYD-1.png')] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-gradient-to-br from-orange-600/50 to-red-600/50",
+    image: "bg-[url('https://i.ibb.co/mFd9zzVJ/SYD-1.png')] bg-cover bg-center from-orange-600/50 to-red-600/50",
     github: "https://github.com/WashingtonLuiz2312/Synex-Assistente-Juridico",
   },
   {
@@ -27,7 +27,7 @@ const projects = [
       "Plataforma web para um SportBar local, com funcionalidades de cardápio digital, reservas online e promoções especiais. Melhorando a experiência do cliente e otimizando operações.",
     technologies: ["React", "Node.Js", "TypeScript"],
     problem: "Necessidade de modernizar a experiência do cliente e otimizar operações",
-    image: "bg-[url('https://i.ibb.co/1fqs0Nxw/Captura-de-tela-2025-12-13-143543.png')] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-gradient-to-br from-orange-600/50 to-smerald-600/50",
+    image: "bg-[url('https://i.ibb.co/1fqs0Nxw/Captura-de-tela-2025-12-13-143543.png')] bg-cover bg-center from-orange-600/50 to-smerald-600/50",
     github: "https://github.com/WashingtonLuiz2312/arena-digital",
     demo: "https://sportbar.lovable.app/",
   },
@@ -48,7 +48,7 @@ const Projects = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="font-mono text-primary text-sm mb-4 block">
-            // Portfólio
+            Portfólio Profissional
           </span>
           <h2 className="section-title">
             Projetos em <span className="text-gradient">destaque</span>
