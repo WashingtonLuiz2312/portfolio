@@ -10,9 +10,9 @@ const experiences = [
     role: "Desenvolvedor Full Stack",
     period: "2026 - Presente",
     location: "Camaçari, BA",
-    logo: "https://media.licdn.com/dms/image/v2/C4D0BAQHeC4QtZK6lrQ/company-logo_200_200/company-logo_200_200/0/1641474012890/altus_equipamentos_logo?e=2147483647&v=beta&t=6Zsegkm2zJc2q2t6kpYdzrqR7EglRs5SdxZesBK-onM", // Substitua por: empresaLogo (após importar a imagem)
+    logo: "https://media.licdn.com/dms/image/v2/C4D0BAQHeC4QtZK6lrQ/company-logo_200_200/company-logo_200_200/0/1641474012890/altus_equipamentos_logo?e=2147483647&v=beta&t=6Zsegkm2zJc2q2t6kpYdzrqR7EglRs5SdxZesBK-onM",
     description:
-      "Desenvolvimento de aplicações web utilizando React, Node.js e Python. Responsabilidade técnica de equipe e implementação de arquiteturas de microsserviços automatizados utilizando a ferramenta N8N",
+      "Desenvolvimento de aplicações web utilizando React, Node.js e Python. Responsabilidade técnica de equipe e implementação de arquiteturas de microsserviços automatizados utilizando a ferramenta N8N.",
     technologies: ["PostgreSQL", "Node.js", "Python", "Javascript", "N8N"],
   },
   {
@@ -20,7 +20,7 @@ const experiences = [
     role: "Estagiário de Sistemas e Automação",
     period: "2025 - 2026",
     location: "Camaçari, BA",
-    logo: "https://media.licdn.com/dms/image/v2/C4D0BAQHeC4QtZK6lrQ/company-logo_200_200/company-logo_200_200/0/1641474012890/altus_equipamentos_logo?e=2147483647&v=beta&t=6Zsegkm2zJc2q2t6kpYdzrqR7EglRs5SdxZesBK-onM", // Substitua pela logo importada
+    logo: "https://media.licdn.com/dms/image/v2/C4D0BAQHeC4QtZK6lrQ/company-logo_200_200/company-logo_200_200/0/1641474012890/altus_equipamentos_logo?e=2147483647&v=beta&t=6Zsegkm2zJc2q2t6kpYdzrqR7EglRs5SdxZesBK-onM",
     description:
       "Desenvolvimento de sistemas automatizados para o setor comercial, automatização de extração de dados utilizando frameworks dedicados.",
     technologies: ["Javascript", "N8N", "React", "PostgreSQL"],
@@ -30,7 +30,7 @@ const experiences = [
     role: "Jovem Aprendiz",
     period: "2022 - 2024",
     location: "Camaçari, BA",
-    logo: "https://logosandtypes.com/wp-content/uploads/2021/04/Grupo-Boticario.png", // Substitua pela logo importada
+    logo: "https://logosandtypes.com/wp-content/uploads/2021/04/Grupo-Boticario.png",
     description:
       "Início da carreira em desenvolvimento web e análise de dados, focado em análise de dados e aprendizado de boas práticas de desenvolvimento.",
     technologies: ["Python", "CSS", "Git", "SAP-S4HANA", "Astrein"],
@@ -42,94 +42,106 @@ const Experience = forwardRef<HTMLElement>((_, ref) => {
     <section
       ref={ref}
       id="experience"
-      className="py-20 px-4 bg-gradient-to-b from-background to-muted/20"
+      className="py-24 bg-black text-white relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto">
+      {/* Elementos Decorativos de Fundo */}
+      <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]" />
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Experiência{" "}
-            <span className="text-primary">Profissional</span>
+        <div className="text-center mb-20">
+          <span className="font-mono text-emerald-500 text-sm mb-4 block uppercase tracking-wider">
+            // Minha Trajetória
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+            Experiência <span className="text-emerald-500">Profissional</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Minha trajetória profissional e as empresas onde contribuí para o
-            desenvolvimento de soluções inovadoras.
+          <p className="text-zinc-400 text-lg max-w-2xl mx-auto leading-relaxed">
+            As empresas e projetos por onde passei, contribuindo para o
+            desenvolvimento de soluções inovadoras e escaláveis.
           </p>
         </div>
 
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent" />
+          <div className="absolute left-[15px] md:left-1/2 transform md:-translate-x-1/2 h-full w-[2px] bg-gradient-to-b from-emerald-500/50 via-zinc-800 to-transparent" />
 
           {/* Experience Items */}
-          <div className="space-y-12">
+          <div className="space-y-16">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row gap-8 ${
+                className={`relative flex flex-col md:flex-row gap-8 md:gap-0 ${
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg shadow-primary/50" />
+                <div className="absolute left-[7px] md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-emerald-500 rounded-full border-4 border-black shadow-[0_0_15px_rgba(16,185,129,0.5)] z-10 mt-6 md:mt-8" />
 
                 {/* Content Card */}
                 <div
-                  className={`ml-8 md:ml-0 md:w-1/2 ${
-                    index % 2 === 0 ? "md:pr-12" : "md:pl-12"
+                  className={`ml-10 md:ml-0 md:w-1/2 ${
+                    index % 2 === 0 ? "md:pl-12" : "md:pr-12"
                   }`}
                 >
-                  <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+                  <div className="bg-zinc-900/30 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 md:p-8 hover:border-emerald-500/50 hover:bg-zinc-900/50 transition-all duration-300 group">
+                    
                     {/* Company & Role */}
-                    <div className="flex items-start gap-4 mb-4">
+                    <div className="flex items-start gap-4 mb-6">
                       {exp.logo ? (
-                        <div className="w-14 h-14 rounded-lg overflow-hidden bg-background border border-border/50 flex items-center justify-center flex-shrink-0">
+                        <div className="w-16 h-16 rounded-xl overflow-hidden bg-white/5 border border-zinc-700 flex items-center justify-center flex-shrink-0 p-1 group-hover:border-emerald-500/30 transition-colors">
                           <img
                             src={exp.logo}
                             alt={`${exp.company} logo`}
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-contain rounded-lg bg-white"
                           />
                         </div>
                       ) : (
-                        <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                          <Briefcase className="w-6 h-6 text-primary" />
+                        <div className="w-16 h-16 rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 flex items-center justify-center flex-shrink-0 group-hover:border-emerald-500/30 transition-colors">
+                          <Briefcase className="w-6 h-6 text-emerald-500" />
                         </div>
                       )}
-                      <div>
-                        <h3 className="text-xl font-bold text-foreground">
+                      
+                      <div className="flex-1">
+                        <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-emerald-500 transition-colors">
                           {exp.role}
                         </h3>
-                        <p className="text-primary font-medium">{exp.company}</p>
+                        <p className="text-emerald-500 font-medium mt-1">{exp.company}</p>
                       </div>
                     </div>
 
                     {/* Meta Info */}
-                    <div className="flex flex-wrap gap-4 mb-4 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
+                    <div className="flex flex-wrap gap-4 mb-6 text-sm text-zinc-500 font-medium">
+                      <div className="flex items-center gap-1.5">
+                        <Calendar className="w-4 h-4 text-zinc-600" />
                         <span>{exp.period}</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
+                      <div className="flex items-center gap-1.5">
+                        <MapPin className="w-4 h-4 text-zinc-600" />
                         <span>{exp.location}</span>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-muted-foreground mb-4">{exp.description}</p>
+                    <p className="text-zinc-400 leading-relaxed mb-6">
+                      {exp.description}
+                    </p>
 
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full"
+                          className="px-3 py-1 bg-black border border-zinc-800 text-zinc-300 text-xs font-mono rounded-full group-hover:border-emerald-500/30 transition-colors"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
+
                   </div>
                 </div>
 
