@@ -10,9 +10,9 @@ const experiences = [
     role: "Desenvolvedor Full Stack",
     period: "2026 - Presente",
     location: "Camaçari, BA",
-    logo: null, // Substitua por: empresaLogo (após importar a imagem)
+    logo: "https://media.licdn.com/dms/image/v2/C4D0BAQHeC4QtZK6lrQ/company-logo_200_200/company-logo_200_200/0/1641474012890/altus_equipamentos_logo?e=2147483647&v=beta&t=6Zsegkm2zJc2q2t6kpYdzrqR7EglRs5SdxZesBK-onM", // Substitua por: empresaLogo (após importar a imagem)
     description:
-      "Desenvolvimento de aplicações web utilizando React, Node.js e Python. Responsabilidade técnica de equipe e implementação de arquiteturas de microsserviços automatizados",
+      "Desenvolvimento de aplicações web utilizando React, Node.js e Python. Responsabilidade técnica de equipe e implementação de arquiteturas de microsserviços automatizados utilizando a ferramenta N8N",
     technologies: ["PostgreSQL", "Node.js", "Python", "Javascript", "N8N"],
   },
   {
@@ -20,20 +20,20 @@ const experiences = [
     role: "Estagiário de Sistemas e Automação",
     period: "2025 - 2026",
     location: "Camaçari, BA",
-    logo: null, // Substitua pela logo importada
+    logo: "https://media.licdn.com/dms/image/v2/C4D0BAQHeC4QtZK6lrQ/company-logo_200_200/company-logo_200_200/0/1641474012890/altus_equipamentos_logo?e=2147483647&v=beta&t=6Zsegkm2zJc2q2t6kpYdzrqR7EglRs5SdxZesBK-onM", // Substitua pela logo importada
     description:
       "Desenvolvimento de sistemas automatizados para o setor comercial, automatização de extração de dados utilizando frameworks dedicados.",
-    technologies: ["Javascript", "N8N", "React"],
+    technologies: ["Javascript", "N8N", "React", "PostgreSQL"],
   },
   {
     company: "Grupo Boticário",
     role: "Jovem Aprendiz",
     period: "2022 - 2024",
     location: "Camaçari, BA",
-    logo: null, // Substitua pela logo importada
+    logo: "https://logosandtypes.com/wp-content/uploads/2021/04/Grupo-Boticario.png", // Substitua pela logo importada
     description:
       "Início da carreira em desenvolvimento web e análise de dados, focado em análise de dados e aprendizado de boas práticas de desenvolvimento.",
-    technologies: ["Python", "CSS", "Git"],
+    technologies: ["Python", "CSS", "Git", "SAP-S4HANA", "Astrein"],
   },
 ];
 
@@ -88,7 +88,7 @@ const Experience = forwardRef<HTMLElement>((_, ref) => {
                           <img
                             src={exp.logo}
                             alt={`${exp.company} logo`}
-                            className="w-full h-full object-contain p-1"
+                            className="w-full h-full object-contain"
                           />
                         </div>
                       ) : (
