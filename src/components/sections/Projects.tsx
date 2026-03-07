@@ -1,4 +1,5 @@
-import { ExternalLink, Github, ArrowRight, Code2 } from "lucide-react";
+import { useState } from "react";
+import { ExternalLink, Github, ArrowRight, Code2, X, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const projects = [
@@ -37,12 +38,15 @@ const projects = [
       "Sistema de segurança com reconhecimento facial em tempo real, integrado a catracas e portas eletrônicas. Alta precisão e baixa latência computacional.",
     technologies: ["Em desenvolvimento", "Python", "OpenCV"],
     problem: "Controle de acesso manual é lento e vulnerável a fraudes.",
-    imageUrl: "", // Sem imagem por enquanto, o componente vai lidar com isso graciosamente
+    imageUrl: "", 
     github: "https://github.com",
   },
 ];
 
 const Projects = () => {
+  // Estado para controlar qual projeto está aberto no iframe
+  const [activeProject, setActiveProject] = useState(null);
+
   return (
     <section id="projects" className="py-24 bg-black text-white relative overflow-hidden">
       
@@ -74,8 +78,11 @@ const Projects = () => {
                 key={project.title}
                 className="group flex flex-col rounded-2xl bg-zinc-900/30 border border-zinc-800 hover:border-emerald-500/50 hover:bg-zinc-900/50 transition-all duration-500 overflow-hidden"
               >
-                {/* Imagem do Projeto com Efeito Parallax Suave */}
-                <div className="h-56 relative overflow-hidden bg-zinc-900 border-b border-zinc-800/50">
+                {/* Imagem do Projeto - Agora Clicável se tiver Demo */}
+                <div 
+                  className={`h-56 relative overflow-hidden bg-zinc-900 border-b border-zinc-800/50 ${project.demo ? 'cursor-pointer' : ''}`}
+                  onClick={() => project.demo && setActiveProject(project)}
+                >
                   {project.imageUrl ? (
                     <img 
                       src={project.imageUrl} 
@@ -88,9 +95,19 @@ const Projects = () => {
                     </div>
                   )}
                   
-                  {/* Gradiente escuro para mesclar a imagem com o card */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/95 via-zinc-900/20 to-transparent" />
+                  {/* Gradiente escuro */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/95 via-zinc-900/20 to-transparent transition-opacity" />
                   
+                  {/* Overlay indicando clique (Apenas se tiver demo) */}
+                  {project.demo && (
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                      <div className="flex items-center gap-2 bg-emerald-500 text-black font-semibold px-4 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                        <Maximize2 className="w-4 h-4" />
+                        Ver Preview
+                      </div>
+                    </div>
+                  )}
+
                   {/* Tech Stack Overlay (Pills) */}
                   <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 z-10">
                     {project.technologies.slice(0, 3).map((tech) => (
@@ -109,7 +126,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Conteúdo do Card */}
+                {/* Conteúdo do Card (Restante inalterado) */}
                 <div className="p-6 md:p-8 flex flex-col flex-1">
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-500 transition-colors">
                     {project.title}
@@ -119,7 +136,6 @@ const Projects = () => {
                     {project.description}
                   </p>
 
-                  {/* Problema Resolvido */}
                   <div className="bg-black/50 rounded-xl p-4 mb-8 border border-zinc-800/50 group-hover:border-zinc-700 transition-colors">
                     <span className="text-xs font-mono text-emerald-500 uppercase tracking-wider block mb-2">
                       Problema resolvido:
@@ -129,7 +145,6 @@ const Projects = () => {
                     </p>
                   </div>
 
-                  {/* Links de Ação */}
                   <div className="flex items-center gap-6 pt-6 border-t border-zinc-800/50 mt-auto">
                     <a
                       href={project.github}
@@ -141,15 +156,13 @@ const Projects = () => {
                       Repositório
                     </a>
                     {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <button
+                        onClick={() => setActiveProject(project)}
                         className="flex items-center gap-2 text-sm font-medium text-zinc-400 hover:text-emerald-500 transition-colors"
                       >
                         <ExternalLink className="h-5 w-5" />
                         Live Demo
-                      </a>
+                      </button>
                     )}
                   </div>
                 </div>
@@ -157,7 +170,6 @@ const Projects = () => {
             ))}
           </div>
 
-          {/* Botão Ver Mais */}
           <div className="text-center mt-16">
             <Button 
               variant="outline" 
@@ -170,6 +182,55 @@ const Projects = () => {
 
         </div>
       </div>
+
+      {/* Modal do Iframe */}
+      {activeProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm">
+          {/* Fundo clicável para fechar o modal */}
+          <div 
+            className="absolute inset-0" 
+            onClick={() => setActiveProject(null)} 
+          />
+          
+          <div className="relative w-full max-w-6xl h-[85vh] bg-zinc-950 border border-zinc-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+            
+            {/* Cabeçalho do Modal */}
+            <div className="flex items-center justify-between p-4 border-b border-zinc-800 bg-zinc-900/50">
+              <div className="flex items-center gap-3">
+                <h3 className="font-semibold text-white">{activeProject.title}</h3>
+                <a 
+                  href={activeProject.demo} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-xs flex items-center gap-1 text-emerald-500 hover:text-emerald-400 transition-colors"
+                >
+                  Abrir em nova guia <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+              <button
+                onClick={() => setActiveProject(null)}
+                className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-lg transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Iframe */}
+            <div className="flex-1 w-full bg-white relative">
+              {/* Loader simples enquanto carrega */}
+              <div className="absolute inset-0 flex items-center justify-center bg-zinc-950">
+                <div className="w-8 h-8 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+              </div>
+              <iframe
+                src={activeProject.demo}
+                className="relative z-10 w-full h-full border-none bg-white"
+                title={`Preview de ${activeProject.title}`}
+                sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
