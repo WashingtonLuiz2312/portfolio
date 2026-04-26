@@ -1,15 +1,18 @@
+import React, { useEffect, useRef } from "react";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { 
+import gsap from "gsap";
+import {
   SiPython, SiJavascript, SiTypescript, SiReact, SiAngular, SiVuedotjs,
   SiNodedotjs, SiFastapi, SiFlask, SiPostgresql, SiDocker, SiTensorflow, SiPytorch, SiHtml5, SiCss3
 } from "react-icons/si";
 import { TbSql } from "react-icons/tb";
+import TextType from "../TextType";
 
 const technologies = [
   { name: "Python", icon: SiPython, color: "#3776AB" },
-  { name: "HTML", icon: SiHtml5, color: "#ffc402"},
-  { name: "CSS", icon: SiCss3, color: "#FFFFFF" },
+  { name: "HTML", icon: SiHtml5, color: "#E34F26" }, // Ajustei para o laranja original
+  { name: "CSS", icon: SiCss3, color: "#1572B6" },    // Ajustei para o azul original
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
   { name: "SQL", icon: TbSql, color: "#4479A1" },
@@ -26,6 +29,8 @@ const technologies = [
 ];
 
 const Hero = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+
   const handleScroll = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -33,135 +38,182 @@ const Hero = () => {
     }
   };
 
+  // Efeito Magnético Premium para os ícones sociais
+  const handleMagneticMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const el = e.currentTarget;
+    const boundingRect = el.getBoundingClientRect();
+    const x = e.clientX - boundingRect.left - boundingRect.width / 2;
+    const y = e.clientY - boundingRect.top - boundingRect.height / 2;
+    gsap.to(el, { duration: 0.4, x: x * 0.4, y: y * 0.4, ease: "power3.out" });
+  };
+
+  const handleMagneticLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    gsap.to(e.currentTarget, { duration: 0.8, x: 0, y: 0, ease: "elastic.out(1, 0.3)" });
+  };
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // 1. Timeline de Entrada (God Tier)
+      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+      tl.from(".hero-desc", { y: 30, opacity: 0, duration: 1, delay: 0.5 })
+        .from(".hero-btn", { 
+          y: 20, 
+          opacity: 0, 
+          duration: 0.8, 
+          stagger: 0.15, 
+          ease: "back.out(1.5)" 
+        }, "-=0.6")
+        .from(".hero-social", { 
+          scale: 0, 
+          opacity: 0, 
+          duration: 0.6, 
+          stagger: 0.1, 
+          ease: "back.out(2)" 
+        }, "-=0.4")
+        .from(".hero-footer", { y: 40, opacity: 0, duration: 1 }, "-=0.4");
+
+      // 2. Fundo Flutuante Dinâmico (Substitui o animate-pulse tosco)
+      gsap.to(".bg-orb-1", {
+        y: "30px", x: "-30px", duration: 5, yoyo: true, repeat: -1, ease: "sine.inOut"
+      });
+      gsap.to(".bg-orb-2", {
+        y: "-40px", x: "20px", duration: 6, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 1
+      });
+
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
+      ref={heroRef}
       id="home"
-      className="min-h-screen flex flex-col justify-between relative overflow-hidden pt-20 md:pt-24 bg-black text-white"
+      className="min-h-[100dvh] flex flex-col justify-between relative overflow-hidden pt-24 pb-8 bg-black text-white"
     >
-      {/* Background Effects (Monochrome Dark + Emerald) */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] animate-pulse pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-emerald-500/5 rounded-full blur-[100px] animate-pulse delay-1000 pointer-events-none" />
-      
-      {/* Grid Pattern Minimalista */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+      {/* Background Effects Premium */}
+      <div className="absolute inset-0 z-0">
+        <div className="bg-orb-1 absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="bg-orb-2 absolute bottom-[20%] right-[20%] w-[350px] h-[350px] bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
+        
+        {/* Grid Pattern Minimalista */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+        
+        {/* Vignette effect para focar a visão no centro */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)] pointer-events-none" />
+      </div>
 
-      {/* Espaçador Invisível no topo para equilibrar o layout */}
-      <div className="w-full h-[100px] md:h-[120px] relative z-10"></div>
+      {/* Conteúdo Principal */}
+      <div className="container mx-auto px-6 relative z-10 flex flex-col items-center justify-center flex-grow mt-12 md:mt-0">
+        <div className="max-w-4xl mx-auto text-center relative w-full">
 
-      {/* Conteúdo Principal Centralizado */}
-      <div className="container mx-auto px-6 relative z-10 flex flex-col items-center justify-center">
-        <div className="max-w-4xl mx-auto text-center">
+          {/* Efeito de Brilho Dinâmico atrás do texto principal */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[150%] bg-emerald-500/5 blur-[100px] rounded-[100%] pointer-events-none" />
 
-          {/* Name */}
-          <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 opacity-0 animate-fade-in tracking-tight"
-            style={{ animationDelay: "0.2s" }}
-          >
-            Olá, eu sou{" "}
-            <span className="text-emerald-500">Washington</span>
-          </h1>
-
-          {/* Title */}
-          <div
-            className="opacity-0 animate-fade-in"
-            style={{ animationDelay: "0.4s" }}
-          >
-            <p className="font-mono text-lg md:text-xl text-emerald-500 mb-6 uppercase tracking-wider">
-              Full Stack Developer | IA & Sistemas
-            </p>
+          {/* Container fixo para o TextType não empurrar a tela enquanto digita */}
+          <div className="min-h-[120px] md:min-h-[160px] lg:min-h-[180px] flex items-center justify-center mb-6">
+            <TextType
+              text={["Seja bem-vindo", "Me chamo Washington Luiz", "Desenvolvedor Full-Stack"]}
+              typingSpeed={75}
+              pauseDuration={1500}
+              showCursor
+              cursorCharacter="_"
+              deletingSpeed={50}
+              variableSpeedEnabled={false}
+              variableSpeedMin={60}
+              variableSpeedMax={120}
+              cursorBlinkDuration={0.5}
+              variableSpeed={false}
+              onSentenceComplete={() => { }}
+              // Tipografia Responsiva e Drop-shadow foda:
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-400 to-emerald-600 drop-shadow-[0_0_20px_rgba(52,211,153,0.3)] px-2"
+            />
           </div>
 
           {/* Description */}
-          <p
-            className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in leading-relaxed"
-            style={{ animationDelay: "0.6s" }}
-          >
-            Transformo ideias em soluções tecnológicas escaláveis. Conhecimento em 
-            arquitetura de sistemas, inteligência artificial, automação de processos e aplicações web.
+          <p className="hero-desc text-zinc-400 text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+            Transformo ideias em soluções tecnológicas escaláveis. Conhecimento sólido em
+            <strong className="text-zinc-200 font-medium"> arquitetura de sistemas</strong>, 
+            <strong className="text-zinc-200 font-medium"> inteligência artificial</strong> e 
+            <strong className="text-zinc-200 font-medium"> aplicações web</strong> de alto impacto.
           </p>
 
           {/* CTAs */}
-          <div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 opacity-0 animate-fade-in"
-            style={{ animationDelay: "0.8s" }}
-          >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-14 relative z-20">
             <Button
               size="lg"
-              className="group bg-white text-black hover:bg-emerald-500 hover:text-white font-semibold transition-all duration-300 h-12 px-8"
+              className="hero-btn group relative overflow-hidden bg-white text-black hover:bg-emerald-500 hover:text-white font-bold transition-all duration-500 h-14 px-8 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(52,211,153,0.4)] hover:-translate-y-1"
               onClick={() => handleScroll("#projects")}
             >
-              Ver Projetos
-              <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
+              <span className="relative z-10 flex items-center">
+                Ver Projetos
+                <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform duration-300" />
+              </span>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-zinc-800 bg-transparent text-zinc-300 hover:bg-zinc-900 hover:text-white hover:border-emerald-500/50 transition-all duration-300 h-12 px-8"
+              className="hero-btn group border-zinc-700 bg-black/50 backdrop-blur-md text-zinc-300 hover:bg-zinc-900 hover:text-emerald-400 hover:border-emerald-500/50 transition-all duration-500 h-14 px-8 rounded-full"
               onClick={() => handleScroll("#contact")}
             >
               Entrar em Contato
             </Button>
           </div>
 
-          {/* Social Links */}
-          <div
-            className="flex items-center justify-center gap-6 opacity-0 animate-fade-in"
-            style={{ animationDelay: "1s" }}
-          >
-            <a
-              href="https://github.com/WashingtonLuiz2312"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-zinc-900/50 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-500 hover:border-emerald-500/50 hover:bg-zinc-900 transition-all duration-300"
-              aria-label="GitHub"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/washington-luiz-amorim/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-zinc-900/50 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-500 hover:border-emerald-500/50 hover:bg-zinc-900 transition-all duration-300"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="mailto:washington.tech@outlook.com.br"
-              className="w-10 h-10 rounded-full bg-zinc-900/50 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-500 hover:border-emerald-500/50 hover:bg-zinc-900 transition-all duration-300"
-              aria-label="Email"
-            >
-              <Mail className="h-5 w-5" />
-            </a>
+          {/* Social Links Magnéticos */}
+          <div className="flex items-center justify-center gap-6 relative z-20">
+            {[
+              { icon: Github, href: "https://github.com/WashingtonLuiz2312", label: "GitHub" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/washington-luiz-amorim/", label: "LinkedIn" },
+              { icon: Mail, href: "mailto:washington.tech@outlook.com.br", label: "Email" },
+            ].map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                target={social.href.startsWith("http") ? "_blank" : undefined}
+                rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                onMouseMove={handleMagneticMove}
+                onMouseLeave={handleMagneticLeave}
+                className="hero-social w-12 h-12 rounded-full bg-zinc-900/80 backdrop-blur-md border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-400 hover:border-emerald-500/50 hover:bg-zinc-800 hover:shadow-[0_0_15px_rgba(52,211,153,0.3)] transition-colors duration-300"
+                aria-label={social.label}
+              >
+                <social.icon className="h-5 w-5 pointer-events-none" />
+              </a>
+            ))}
           </div>
+
         </div>
       </div>
 
       {/* Rodapé (Carousel & Scroll Indicator) */}
-      <div className="w-full flex flex-col justify-end relative z-10 mt-8">
-        
-        {/* Tech Carousel */}
-        <div className="w-full py-8 opacity-0 animate-fade-in border-t border-zinc-900/50" style={{ animationDelay: "1.2s" }}>
-          <div className="relative overflow-hidden">
-            {/* Fade edges - Atualizado para preto */}
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
-            
-            {/* Scrolling container */}
-            <div className="flex animate-marquee">
+      <div className="hero-footer w-full flex flex-col justify-end relative z-10 mt-8">
+
+        {/* Tech Carousel Super Premium */}
+        <div className="w-full py-6 border-y border-zinc-900/50 bg-black/30 backdrop-blur-sm mb-6">
+          <div className="relative overflow-hidden flex">
+            {/* Fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none" />
+
+            {/* Scrolling container (pausa no hover) */}
+            <div 
+              className="flex animate-marquee hover:[animation-play-state:paused]"
+              style={{ animationDuration: "50s" }} /* AUMENTE ESSE VALOR PARA FICAR MAIS LENTO */
+            >
               {[...technologies, ...technologies].map((tech, index) => {
                 const IconComponent = tech.icon;
                 return (
                   <div
                     key={`${tech.name}-${index}`}
-                    className="flex-shrink-0 mx-3 px-5 py-3 bg-zinc-900/30 backdrop-blur-sm rounded-full border border-zinc-800 hover:border-emerald-500/50 transition-all hover:scale-105 group cursor-default"
+                    className="flex-shrink-0 mx-3 px-5 py-2.5 bg-zinc-900/40 backdrop-blur-md rounded-2xl border border-zinc-800/50 hover:border-emerald-500/40 hover:bg-zinc-800/80 transition-all duration-300 hover:-translate-y-1 group cursor-default shadow-lg"
                   >
                     <div className="flex items-center gap-3">
-                      <IconComponent 
-                        className="h-5 w-5 transition-transform group-hover:scale-110" 
+                      <IconComponent
+                        className="h-5 w-5 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_currentColor]"
                         style={{ color: tech.color }}
                       />
-                      <span className="font-mono text-sm text-zinc-400 whitespace-nowrap group-hover:text-zinc-200 transition-colors">
+                      <span className="font-mono text-sm text-zinc-400 whitespace-nowrap group-hover:text-white transition-colors duration-300">
                         {tech.name}
                       </span>
                     </div>
@@ -172,15 +224,17 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="pb-8 opacity-0 animate-fade-in" style={{ animationDelay: "1.4s" }}>
-          <div className="flex flex-col items-center gap-2 text-zinc-500">
-            <span className="text-xs font-mono uppercase tracking-widest">Scroll</span>
-            <div className="w-5 h-8 rounded-full border-2 border-zinc-700 flex justify-center pt-2">
-              <div className="w-1 h-1.5 bg-emerald-500 rounded-full animate-bounce" />
-            </div>
+        {/* Scroll Indicator Interativo */}
+        <div 
+          className="flex flex-col items-center gap-3 text-zinc-500 cursor-pointer hover:text-emerald-500 transition-colors duration-300 mx-auto" 
+          onClick={() => handleScroll("#about")}
+        >
+          <span className="text-[10px] font-mono uppercase tracking-[0.2em]">Scroll Down</span>
+          <div className="w-6 h-10 rounded-full border-2 border-current flex justify-center p-1 relative opacity-70">
+            <div className="w-1.5 h-2 bg-current rounded-full animate-bounce absolute top-2" />
           </div>
         </div>
+        
       </div>
     </section>
   );
